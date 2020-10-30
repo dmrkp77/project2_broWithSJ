@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "513887513346",
+    "firebase_url": "https://bodycheck-4a579.firebaseio.com",
+    "project_id": "bodycheck-4a579",
+    "storage_bucket": "bodycheck-4a579.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513887513346:android:1cc12899350cebe1a5301b",
+        "android_client_info": {
+          "package_name": "com.project2.bodycheck"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513887513346-6lj742elsp77l2kv2pd0lrofcj18lmkh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project2.bodycheck",
+            "certificate_hash": "e0ad1f602aaa38aa5ee567aff09637511e27cd1f"
+          }
+        },
+        {
+          "client_id": "513887513346-1q6ujo2jlmhs9c1tapu1io8mpl85bnqc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC4t_79fTcjozdNDzp3sDNkE1LcFHYC7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513887513346-1q6ujo2jlmhs9c1tapu1io8mpl85bnqc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
