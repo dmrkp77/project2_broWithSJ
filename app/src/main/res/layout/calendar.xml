@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:background="@drawable/gradient_blue">
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/calendar"/>
+
+        <TextView
+            android:layout_marginLeft="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="14dp"
+            android:text="Monthly Calendar"
+            android:textColor="@color/colorWhite"
+            android:textSize="28sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/move_left"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:textColor="@color/colorSkyBlue"
+            android:textSize="30sp"
+            android:background="@drawable/left"/>
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tv_date"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="2020년 9월"
+            android:textSize="34sp"
+            android:textColor="@color/colorBlack"/>
+
+        <Button
+            android:id="@+id/move_right"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:textColor="@color/colorSkyBlue"
+            android:textSize="30sp"
+            android:background="@drawable/right"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="일"
+            android:textColor="@color/colorRed"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="월"
+            android:textColor="@color/colorBlack"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="화"
+            android:textColor="@color/colorBlack"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="수"
+            android:textColor="@color/colorBlack"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="목"
+            android:textColor="@color/colorBlack"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="금"
+            android:textColor="@color/colorBlack"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="토"
+            android:textColor="@color/colorBlue"/>
+
+    </LinearLayout>
+
+    <GridView
+        android:layout_marginTop="4dp"
+        android:id="@+id/gridview"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:numColumns="7"
+        android:listSelector="@color/colorTransparent">
+
+    </GridView>
+
+</LinearLayout>
