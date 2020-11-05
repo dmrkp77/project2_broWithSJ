@@ -9,9 +9,16 @@
     <color name="primaryTextColor">#00a5ff</color>
     <color name="loginBkColor">#f0f0f0</color>
 
-    <!--colros for card-->
+    <!--colors for card-->
     <color name="whiteCardColor">#fff</color>
 
     <color name="homeBackColor">#a2d5f2</color>
 
+    <!--colors for calendar-->
+    <color name="colorTransparent">#99B4B4B4</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorBlue">#0000FF</color>
+    <color name="colorSkyBlue">#008EFF</color>
 </resources>
