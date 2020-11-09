@@ -15,6 +15,7 @@
         <activity android:name=".login.FindActivity" />
         <activity android:name=".main.SurveyActivity" />
         <activity android:name=".login.RegisterActivity" />
+        <activity android:name=".calendar.CalendarActivity"/>
         <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

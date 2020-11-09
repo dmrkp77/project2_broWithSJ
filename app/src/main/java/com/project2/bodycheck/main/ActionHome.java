@@ -30,6 +30,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.project2.bodycheck.PreferenceManager;
 import com.project2.bodycheck.R;
+import com.project2.bodycheck.calendar.CalendarActivity;
 
 import java.util.ArrayList;
 
@@ -51,6 +52,8 @@ public class ActionHome extends Fragment {
     ViewGroup viewGroup;
     private Button surveyButton;
     private Button surveyButton2;
+    private Button toDoListButton;
+    private Button calenderButton;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
@@ -62,7 +65,6 @@ public class ActionHome extends Fragment {
     private PreferenceManager util;
     private TextView textView_beforeSurveyDate;
     private TextView textView_surveyDate;
-    private TextView textView_todayBoard;
     private TextView textView_totalScore;
     int habitScore = 0, surveyScore = 0;
 
@@ -78,7 +80,9 @@ public class ActionHome extends Fragment {
 
         surveyButton = (Button) viewGroup.findViewById(R.id.home_surveyButton);
         surveyButton2 = (Button) viewGroup.findViewById(R.id.home_surveyButton2);
-        textView_todayBoard = (TextView) viewGroup.findViewById(R.id.home_todayBoard);
+        toDoListButton = (Button) viewGroup.findViewById(R.id.home_toDoListBtn);
+        calenderButton = (Button) viewGroup.findViewById(R.id.home_calenderBtn);
+
         textView_totalScore = (TextView) viewGroup.findViewById(R.id.home_scoreView);
         textView_surveyDate = (TextView) viewGroup.findViewById(R.id.home_surveyDate);
         textView_beforeSurveyDate = (TextView) viewGroup.findViewById(R.id.home_beforeSurveyDate);
@@ -94,6 +98,8 @@ public class ActionHome extends Fragment {
 
         surveyButton.setOnClickListener(listener);
         surveyButton2.setOnClickListener(listener);
+        toDoListButton.setOnClickListener(listener);
+        calenderButton.setOnClickListener(listener);
 
         return viewGroup;
     }
@@ -107,6 +113,12 @@ public class ActionHome extends Fragment {
             }
             if (view == surveyButton2) {
                 startActivity(new Intent(getContext(), SurveyActivity.class));
+            }
+            if(view == toDoListButton){
+                startActivity(new Intent(getContext(), SurveyActivity.class)); //SurveyActivity -> YourActivity
+            }
+            if(view == calenderButton){
+                startActivity(new Intent(getContext(), CalendarActivity.class));
             }
         }
     };
@@ -149,7 +161,7 @@ public class ActionHome extends Fragment {
 
                     habitScore = smokingScore + supplementScore + workoutScore;
 
-                    UpdateBoard();
+//                    UpdateBoard();
                 }
                 score1 = habitScore;
                 CalculateSurveyScore();
@@ -165,12 +177,12 @@ public class ActionHome extends Fragment {
             public void onEvent(@androidx.annotation.Nullable DocumentSnapshot documentSnapshot, @androidx.annotation.Nullable FirebaseFirestoreException e) {
                 String surveyDone = documentSnapshot.getData().get(KEY_SURVEY_DONE).toString();
                 if (surveyDone.equals("0")) {
-                    textView_todayBoard.setText("You have not conducted today's survey.\nPlease conduct it first.");
-                    textView_todayBoard.setTextSize(20);
-                    textView_totalScore.setText("The socre will be displayed after conducting a survey.");
-                    textView_totalScore.setTextSize(20);
-
-                    textView_beforeSurveyDate.setText("Please conduct a survey.");
+//                    textView_todayBoard.setText("You have not conducted today's survey.\nPlease conduct it first.");
+//                    textView_todayBoard.setTextSize(20);
+//                    textView_totalScore.setText("The socre will be displayed after conducting a survey.");
+//                    textView_totalScore.setTextSize(20);
+//
+//                    textView_beforeSurveyDate.setText("Please conduct a survey.");
                 } else {
                     int goToBedScore = 0;
                     if (documentSnapshot.getData().get("goToBed").toString().equals("before 9pm"))
@@ -250,7 +262,7 @@ public class ActionHome extends Fragment {
 
                     surveyScore = goToBedScore + sleepingTimeScore + breakfastScore + lunchScore + dinnerScore + midnightSnackScore + stressLevelScore;
 
-                    UpdateBoard();
+//                    UpdateBoard();
 
                     textView_beforeSurveyDate.setText("You did it on ");
 
@@ -281,19 +293,19 @@ public class ActionHome extends Fragment {
         return;
     }
 
-    public void UpdateBoard() {
-        int totalScore = surveyScore + habitScore;
-        textView_totalScore.setText(String.valueOf(totalScore));
-        textView_totalScore.setTextSize(24);
-
-        if (totalScore < 25)
-            textView_todayBoard.setText("Dangerous condition like hanging on a cliff.\nLove yourself!");
-        else if (totalScore < 50)
-            textView_todayBoard.setText("Standard physical condition.\nLet's try a little more!");
-        else if (totalScore < 75)
-            textView_todayBoard.setText("It is in a good shape.\nOnly one step to Perfection!");
-        else textView_todayBoard.setText("The best.\nAll you the god of health?");
-
-        textView_todayBoard.setTextSize(24);
-    }
+//    public void UpdateBoard() {
+//        int totalScore = surveyScore + habitScore;
+//        textView_totalScore.setText(String.valueOf(totalScore));
+//        textView_totalScore.setTextSize(24);
+//
+//        if (totalScore < 25)
+//            textView_todayBoard.setText("Dangerous condition like hanging on a cliff.\nLove yourself!");
+//        else if (totalScore < 50)
+//            textView_todayBoard.setText("Standard physical condition.\nLet's try a little more!");
+//        else if (totalScore < 75)
+//            textView_todayBoard.setText("It is in a good shape.\nOnly one step to Perfection!");
+//        else textView_todayBoard.setText("The best.\nAll you the god of health?");
+//
+//        textView_todayBoard.setTextSize(24);
+//    }
 }
