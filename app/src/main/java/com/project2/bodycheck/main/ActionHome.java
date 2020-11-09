@@ -1,15 +1,14 @@
 package com.project2.bodycheck.main;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.EventLogTags;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +32,8 @@ import com.project2.bodycheck.R;
 import com.project2.bodycheck.calendar.CalendarActivity;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.annotation.Nullable;
 
@@ -71,10 +72,54 @@ public class ActionHome extends Fragment {
     int score1, score2;
     private PieChart pieChart;
 
+    //뷰 페이저
+    private ViewPager viewPager;
+    private ViewPagerAdapter adapter;
+    //뷰 페이저 자동 넘김
+    private  int currentPage = 0;
+    private Timer timer;
+    private final long DELAY_MS = 500;
+    private final long PERIOD_MS = 3000;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+        this.adapter = new ViewPagerAdapter(getChildFragmentManager());
+        //뷰 페이저 자동 넘김
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            @Override
+            public void run() {
+                //이미지 개수 만큼 숫자 조절 필요
+                if(currentPage == 2) { currentPage = 0; }
+                viewPager.setCurrentItem(currentPage++, true);
+            }
+        };
+        //페이지 넘김 시간 조절
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, DELAY_MS, PERIOD_MS);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        timer.cancel();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
 
         viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -104,6 +149,12 @@ public class ActionHome extends Fragment {
         return viewGroup;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @androidx.annotation.Nullable Bundle savedInstanceState) {
+        //뷰 페이저
+        this.viewPager = (ViewPager) view.findViewById(R.id.home_viewPager);
+        this.viewPager.setAdapter(adapter);
+    }
 
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
