@@ -11,70 +11,105 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:orientation="vertical"
-        android:paddingTop="10dp">
+        android:orientation="vertical">
 
         <LinearLayout
+            android:gravity="center|left"
+            android:background="@drawable/container_style"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/userhabit_backButton"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_margin="5dp"
+                android:layout_marginLeft="10dp"
                 android:background="@drawable/ic_back" />
 
             <TextView
+                android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Habit"
                 android:textColor="#5e5e5e"
                 android:textSize="24sp" />
+
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+        <LinearLayout
+            android:background="@drawable/container_style"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="15dp"
-            android:text="1. Are you smoking?"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <RadioGroup
-            android:id="@+id/userhabit_ques_smoking_RG"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/userhabit_Ans_smoking_YES"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="YES" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="1. Are you smoking?"
+                android:textSize="22sp"
+                android:textColor="@color/colorBlack" />
 
-            <RadioButton
-                android:id="@+id/userhabit_Ans_smoking_NO"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="NO" />
-        </RadioGroup>
+            <RadioGroup
+                android:id="@+id/userhabit_ques_smoking_RG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+                <RadioButton
+                    android:id="@+id/userhabit_Ans_smoking_YES"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="YES" />
+
+                <RadioButton
+                    android:id="@+id/userhabit_Ans_smoking_NO"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="NO" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@drawable/container_style"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="15dp"
-            android:text="2. Are you taking supplements?(Multi-Selecting)"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="2. Are you taking supplements?(Multi-Selecting)"
+                android:textSize="22sp"
+                android:textColor="@color/colorBlack" />
 
             <LinearLayout
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -95,6 +130,8 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -115,6 +152,9 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -134,57 +174,75 @@
                     android:text="etc" />
             </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:text="3. How often do you work out once a week?"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        </LinearLayout>
 
-        <RadioGroup
-            android:id="@+id/userhabit_ques_workout_RG"
+        <LinearLayout
+            android:background="@drawable/container_style"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/userhabit_Ans_workout_Never"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Never" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="3. How often do you work out once a week?"
+                android:textSize="22sp"
+                android:textColor="@color/colorBlack" />
 
-            <RadioButton
-                android:id="@+id/userhabit_Ans_workout_Seldom"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="1~2times" />
+            <RadioGroup
+                android:id="@+id/userhabit_ques_workout_RG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/userhabit_Ans_workout_Often"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="3~4times" />
+                <RadioButton
+                    android:id="@+id/userhabit_Ans_workout_Never"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Never" />
 
+                <RadioButton
+                    android:id="@+id/userhabit_Ans_workout_Seldom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="1~2times" />
 
-            <RadioButton
-                android:id="@+id/userhabit_Ans_workout_Always"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="5times or more" />
+                <RadioButton
+                    android:id="@+id/userhabit_Ans_workout_Often"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="3~4times" />
 
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/userhabit_Ans_workout_Always"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="5times or more" />
+
+            </RadioGroup>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/userhabit_saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
             android:text="Save"
             android:textColor="#ffffff"
             android:background="#00bcd4"/>
+
     </LinearLayout>
 </LinearLayout>
