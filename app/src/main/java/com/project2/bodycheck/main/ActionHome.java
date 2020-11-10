@@ -80,22 +80,21 @@ public class ActionHome extends Fragment {
     private Timer timer;
     private final long DELAY_MS = 500;
     private final long PERIOD_MS = 3000;
+    private final Handler handler = new Handler();
+    private final Runnable Update = new Runnable() {
+        @Override
+        public void run() {
+            //이미지 개수 만큼 숫자 조절 필요
+            if(currentPage == 2) { currentPage = 0; }
+            viewPager.setCurrentItem(currentPage++, true);
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         this.adapter = new ViewPagerAdapter(getChildFragmentManager());
-        //뷰 페이저 자동 넘김
-        final Handler handler = new Handler();
-        final Runnable Update = new Runnable() {
-            @Override
-            public void run() {
-                //이미지 개수 만큼 숫자 조절 필요
-                if(currentPage == 2) { currentPage = 0; }
-                viewPager.setCurrentItem(currentPage++, true);
-            }
-        };
         //페이지 넘김 시간 조절
         timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -115,6 +114,14 @@ public class ActionHome extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        timer.cancel();
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, DELAY_MS, PERIOD_MS);
     }
 
     @Override

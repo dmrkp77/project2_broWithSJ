@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".main.ActionUser"
-    android:background="@color/homeBackColor">
+    android:background="@drawable/gradient_blue">
 
     <LinearLayout
         android:layout_width="match_parent"
