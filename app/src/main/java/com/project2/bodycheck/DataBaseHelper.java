@@ -14,13 +14,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String ID = "ID";
     private static final String DATE = "DATE";
     private static final String IMAGE = "IMAGE";
+    private static final String CONTENTS1 = "CONTENTS1";
+    private static final String CONTENTS2 = "CONTENTS2";
+    private static final String CONTENTS3 = "CONTENTS3";
+    private static final String CONTENTS4 = "CONTENTS4";
+    private static final String CONTENTS5 = "CONTENTS5";
 
     //위의 테이블 추가시 버전 갱신 필요
-    public DataBaseHelper(Context context) { super(context, DB_NAME, null, 1); }
+    public DataBaseHelper(Context context) { super(context, DB_NAME, null, 2); }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + DB_TABLE + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, DATE TEXT, IMAGE TEXT)");
+        db.execSQL("create table " + DB_TABLE + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, DATE TEXT, IMAGE TEXT, CONTENTS1 TEXT, CONTENTS2 TEXT, CONTENTS3 TEXT, CONTENTS4 TEXT, CONTENTS5 TEXT)");
     }
 
     @Override
@@ -30,11 +35,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     //데이터 추가
-    public boolean insertData(String date, String image) {
+    public boolean insertData(String date, String image, String contents1, String contents2, String contents3, String contents4, String contents5) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(DATE, date);
         contentValues.put(IMAGE, image);
+        contentValues.put(CONTENTS1, contents1);
+        contentValues.put(CONTENTS2, contents2);
+        contentValues.put(CONTENTS3, contents3);
+        contentValues.put(CONTENTS4, contents4);
+        contentValues.put(CONTENTS5, contents5);
         long result = db.insert(DB_TABLE, null, contentValues);
 
         if(result == -1) { return false; }
@@ -56,8 +66,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return db.delete(DB_TABLE, "ID = ?", new String[] {id});
     }
 
-    //데이터 갱신
     /*
+    //데이터 갱신
     public int updateData(String id, String temp) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

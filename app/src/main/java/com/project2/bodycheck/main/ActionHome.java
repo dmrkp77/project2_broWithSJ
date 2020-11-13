@@ -53,7 +53,7 @@ public class ActionHome extends Fragment {
     ViewGroup viewGroup;
     private Button surveyButton;
     private Button surveyButton2;
-    private Button toDoListButton;
+    //private Button toDoListButton;
     private Button calenderButton;
 
     private FirebaseAuth firebaseAuth;
@@ -132,7 +132,7 @@ public class ActionHome extends Fragment {
 
         surveyButton = (Button) viewGroup.findViewById(R.id.home_surveyButton);
         surveyButton2 = (Button) viewGroup.findViewById(R.id.home_surveyButton2);
-        toDoListButton = (Button) viewGroup.findViewById(R.id.home_toDoListBtn);
+        //toDoListButton = (Button) viewGroup.findViewById(R.id.home_toDoListBtn);
         calenderButton = (Button) viewGroup.findViewById(R.id.home_calenderBtn);
 
         textView_totalScore = (TextView) viewGroup.findViewById(R.id.home_scoreView);
@@ -150,7 +150,7 @@ public class ActionHome extends Fragment {
 
         surveyButton.setOnClickListener(listener);
         surveyButton2.setOnClickListener(listener);
-        toDoListButton.setOnClickListener(listener);
+        //toDoListButton.setOnClickListener(listener);
         calenderButton.setOnClickListener(listener);
 
         return viewGroup;
@@ -172,9 +172,9 @@ public class ActionHome extends Fragment {
             if (view == surveyButton2) {
                 startActivity(new Intent(getContext(), SurveyActivity.class));
             }
-            if(view == toDoListButton){
+            /*if(view == toDoListButton){
                 startActivity(new Intent(getContext(), SurveyActivity.class)); //SurveyActivity -> YourActivity
-            }
+            }*/
             if(view == calenderButton){
                 startActivity(new Intent(getContext(), CalendarActivity.class));
             }
