@@ -15,10 +15,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -72,6 +83,8 @@ public class ActionHome extends Fragment {
     int score1, score2;
     private PieChart pieChart;
 
+    private BarChart barChart;
+
     //뷰 페이저
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
@@ -122,6 +135,9 @@ public class ActionHome extends Fragment {
                 handler.post(Update);
             }
         }, DELAY_MS, PERIOD_MS);
+
+        CalculateHabitScore();
+        setBarChart();
     }
 
     @Override
@@ -139,6 +155,7 @@ public class ActionHome extends Fragment {
         textView_surveyDate = (TextView) viewGroup.findViewById(R.id.home_surveyDate);
         textView_beforeSurveyDate = (TextView) viewGroup.findViewById(R.id.home_beforeSurveyDate);
         pieChart = (PieChart) viewGroup.findViewById(R.id.home_pieChart);
+        barChart = (BarChart) viewGroup.findViewById(R.id.home_barChart);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
@@ -147,6 +164,7 @@ public class ActionHome extends Fragment {
         docRef_Survey = db.collection("UserSurvey").document(firebaseUser.getEmail());
         docRef_Habit = db.collection("UserHabit").document(firebaseUser.getEmail());
         CalculateHabitScore();
+        setBarChart();
 
         surveyButton.setOnClickListener(listener);
         surveyButton2.setOnClickListener(listener);
@@ -349,6 +367,51 @@ public class ActionHome extends Fragment {
             }
         });
         return;
+    }
+
+    ArrayList<BarEntry> barEntryArrayList;
+    ArrayList<String> labelsNames;
+    ArrayList<ChartDateData> chartDateDataArrayList = new ArrayList<>();
+
+    private void setBarChart() {
+        barEntryArrayList = new ArrayList<>();
+        labelsNames = new ArrayList<>();
+        fillChartDate();
+        for(int i = 0; i < chartDateDataArrayList.size(); i++) {
+            String dates = chartDateDataArrayList.get(i).getDates();
+            int scores = chartDateDataArrayList.get(i).getScores();
+            barEntryArrayList.add(new BarEntry(i, scores));
+            labelsNames.add(dates);
+        }
+
+        BarDataSet barDataSet = new BarDataSet(barEntryArrayList, "Dates");
+        barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        Description description = new Description();
+        description.setText("Dates");
+        barChart.setDescription(description);
+        BarData barData = new BarData(barDataSet);
+        barChart.setData(barData);
+
+        XAxis xAxis = barChart.getXAxis();
+        xAxis.setValueFormatter(new IndexAxisValueFormatter(labelsNames));
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setDrawGridLines(false);
+        xAxis.setDrawAxisLine(false);
+        xAxis.setGranularity(1f);
+        xAxis.setLabelCount(labelsNames.size());
+        xAxis.setLabelRotationAngle(270);
+        barChart.invalidate();
+    }
+
+    private void fillChartDate() {
+        chartDateDataArrayList.clear();
+        chartDateDataArrayList.add(new ChartDateData("xx/xx", 50));
+        chartDateDataArrayList.add(new ChartDateData("xx/xx", 50));
+        chartDateDataArrayList.add(new ChartDateData("xx/xx", 50));
+        chartDateDataArrayList.add(new ChartDateData("xx/xx", 50));
+        chartDateDataArrayList.add(new ChartDateData("xx/xx", 50));
+        chartDateDataArrayList.add(new ChartDateData("xx/xx", 50));
+        chartDateDataArrayList.add(new ChartDateData("xx/xx", 50));
     }
 
 //    public void UpdateBoard() {
