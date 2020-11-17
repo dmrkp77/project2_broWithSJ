@@ -28,8 +28,7 @@
             android:id="@+id/calendar_item_image"
             android:layout_margin="4dp"
             android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/ic_launcher_foreground"/>
+            android:layout_height="60dp"/>
 
     </LinearLayout>
 

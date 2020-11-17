@@ -23,9 +23,19 @@ public class CalendarGridViewItem extends LinearLayout {
         myImage = findViewById(R.id.calendar_item_image);
     }
 
-    public void setDay(String day) { myDay.setText(day); }
+    public void setDay(String day, String color) {
+        if(color.equals("0")) {
+            myDay.setText(day);
+            myDay.setTextColor(0x99B4B4B4);
+        }
+        else if(color.equals("1")) {
+            myDay.setText(day);
+            myDay.setTextColor(0xFF000000);
+        }
+    }
 
     public void setMyImage(String image) {
-        if(image.equals("0")) { myImage.setBackgroundResource(R.drawable.ic_launcher_foreground); }
+        if(image.equals("1")) { myImage.setBackgroundResource(R.drawable.ic_launcher_foreground); }
+        else { myImage.setBackgroundResource(0); }
     }
 }

@@ -31,7 +31,7 @@ public class CalendarGridViewAdapter extends BaseAdapter {
         if(convertView == null) { itemView = new CalendarGridViewItem(myContext, myData.get(position)); }
         else { itemView = (CalendarGridViewItem)convertView; }
 
-        itemView.setDay(myData.get(position).getDay());
+        itemView.setDay(myData.get(position).getDay(), myData.get(position).getDayColor());
         itemView.setMyImage(myData.get(position).getImage());
 
         return itemView;

@@ -71,9 +71,9 @@
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0.5dp"
         android:orientation="vertical"
-        android:background="#D5D5D5"/>
+        android:background="@color/colorBlack"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -147,20 +147,19 @@
     </LinearLayout>
 
     <LinearLayout
+        android:background="@drawable/gradient_blue"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:orientation="vertical"
-        android:background="#D5D5D5"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <GridView
-        android:layout_marginTop="15dp"
-        android:id="@+id/gridview"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:numColumns="7"
-        android:listSelector="#ECECEC">
+        <GridView
+            android:background="@color/colorWhite"
+            android:id="@+id/gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="7"
+            android:listSelector="#ECECEC"/>
 
-    </GridView>
+    </LinearLayout>
 
 </LinearLayout>

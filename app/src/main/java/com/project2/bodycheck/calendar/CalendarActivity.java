@@ -44,6 +44,12 @@ public class CalendarActivity extends Activity {
     private int current_year;
     private int current_month;
 
+    private int temp_set_year;
+    private int temp_set_month;
+
+    private int prev_count;
+    private int next_count;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,22 +82,32 @@ public class CalendarActivity extends Activity {
         //이번달 1일 요일 판단
         mCal.set(Integer.parseInt(curYearFormat.format(date)), Integer.parseInt(curMonthFormat.format(date)) - 1, 1);
 
+        current_year = mCal.get(Calendar.YEAR);
+        current_month = mCal.get(Calendar.MONTH);
+
+        temp_set_year = current_year;
+        temp_set_month = current_month;
+        if(temp_set_month == 0) {
+            temp_set_year -= 1;
+            temp_set_month = 11;
+        }
+        else { temp_set_month -= 1; }
+        mCal.set(temp_set_year, temp_set_month, 1);
+        prev_count = mCal.getActualMaximum(Calendar.DAY_OF_MONTH);
+        mCal.set(current_year, current_month, 1);
+
         int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
         //1일, 요일 매칭 시키기 위해 공백 추가
         for(int i = 1; i < dayNum; i++) {
-            myGridAdapter.addItem(new CalendarGridViewData("", ""));
+            int temp = prev_count - dayNum + i + 1;
+            String index = String.valueOf(temp);
+            myGridAdapter.addItem(new CalendarGridViewData(index, "0", "0"));
             check_count += 1;
             blank_count += 1;
         }
 
-        current_year = mCal.get(Calendar.YEAR);
-        current_month = mCal.get(Calendar.MONTH);
-
         //1일 부터 날짜 추가
         setCalendarDate(current_month + 1);
-
-        //일자 클릭 시 이벤트
-        gridView.setOnItemClickListener(new GridViewItemClickListener());
 
         //왼쪽 버튼
         moveLeft.setOnClickListener(new View.OnClickListener() {
@@ -108,9 +124,22 @@ public class CalendarActivity extends Activity {
                 else { current_month -= 1; }
                 mCal.set(current_year, current_month, 1);
 
+                temp_set_year = current_year;
+                temp_set_month = current_month;
+                if(temp_set_month == 0) {
+                    temp_set_year -= 1;
+                    temp_set_month = 11;
+                }
+                else { temp_set_month -= 1; }
+                mCal.set(temp_set_year, temp_set_month, 1);
+                prev_count = mCal.getActualMaximum(Calendar.DAY_OF_MONTH);
+                mCal.set(current_year, current_month, 1);
+
                 int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
                 for(int i = 1; i < dayNum; i++) {
-                    myGridAdapter.addItem(new CalendarGridViewData("", ""));
+                    int temp = prev_count - dayNum + i + 1;
+                    String index = String.valueOf(temp);
+                    myGridAdapter.addItem(new CalendarGridViewData(index, "0", "0"));
                     check_count += 1;
                     blank_count += 1;
                 }
@@ -131,6 +160,7 @@ public class CalendarActivity extends Activity {
                 myGridAdapter.clear();
                 check_count = 0;
                 blank_count = 0;
+                prev_count = mCal.getActualMaximum(Calendar.DAY_OF_MONTH);
 
                 if(current_month == 11) {
                     current_year += 1;
@@ -141,7 +171,9 @@ public class CalendarActivity extends Activity {
 
                 int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
                 for(int i = 1; i < dayNum; i++) {
-                    myGridAdapter.addItem(new CalendarGridViewData("", ""));
+                    int temp = prev_count - dayNum + i + 1;
+                    String index = String.valueOf(temp);
+                    myGridAdapter.addItem(new CalendarGridViewData(index, "0", "0"));
                     check_count += 1;
                     blank_count += 1;
                 }
@@ -156,30 +188,6 @@ public class CalendarActivity extends Activity {
         });
     }
 
-    //화면 돌아올 시 수행
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        myGridAdapter.clear();
-        check_count = 0;
-        blank_count = 0;
-        String temp_year = String.valueOf(current_year);
-        String temp_month;
-        if(current_month < 9) { temp_month = "0" + String.valueOf(current_month + 1); }
-        else { temp_month = String.valueOf(current_month + 1); }
-        searchText = temp_year + temp_month;
-
-        int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
-        for(int i = 1; i < dayNum; i++) {
-            myGridAdapter.addItem(new CalendarGridViewData("", ""));
-            check_count += 1;
-            blank_count += 1;
-        }
-        setCalendarDate(mCal.get(Calendar.MONTH) + 1);
-        selectedPos = -1;
-    }
-
     private String tempText;
 
     //해당 월에 표시할 일 수 계산
@@ -191,53 +199,15 @@ public class CalendarActivity extends Activity {
             searchData(tempText, String.valueOf(i + 1));
             check_count += 1;
         }
-
+        next_count = 1;
         //빈칸 채우기용
-        if(check_count > 35) {
-            for(int i = check_count; i < 42; i++) {
-                myGridAdapter.addItem(new CalendarGridViewData("", ""));
-                check_count += 1;
-            }
-        }
-        else if(check_count < 35) {
-            for(int i = check_count; i < 35; i++) {
-                myGridAdapter.addItem(new CalendarGridViewData("", ""));
-                check_count += 1;
-            }
+        for(int i = check_count; i < 42; i++) {
+            String index = String.valueOf(next_count);
+            myGridAdapter.addItem(new CalendarGridViewData(index, "0", "0"));
+            check_count += 1;
+            next_count += 1;
         }
         check_count = 0;
-    }
-
-    //초기 선택 값(NULL)
-    private int selectedPos = -1;
-    //달력 일자 선택시 이벤트
-    private class GridViewItemClickListener implements AdapterView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            //더블 클릭 시 전환
-            if(selectedPos == position) {
-                int temp = selectedPos - blank_count + 1;
-                if(temp >= 1 && temp <= mCal.getActualMaximum(Calendar.DAY_OF_MONTH)) {
-                    Intent intent = new Intent(getApplicationContext(), CalendarSelectedData.class);
-
-                    String day;
-                    if(temp < 10) { day = "0" + String.valueOf(temp); }
-                    else { day = String.valueOf(temp); }
-
-                    String temp_year = String.valueOf(current_year);
-                    String temp_month;
-                    if(current_month < 9) { temp_month = "0" + String.valueOf(current_month + 1); }
-                    else { temp_month = String.valueOf(current_month + 1); }
-
-                    intent.putExtra("year", temp_year);
-                    intent.putExtra("month", temp_month);
-                    intent.putExtra("day", day);
-
-                    startActivity(intent);
-                }
-            }
-            selectedPos = position;
-        }
     }
 
     private int textViewCount = -1;
@@ -248,13 +218,13 @@ public class CalendarActivity extends Activity {
         Cursor cursor = db.searchData(text);
 
         textViewCount = 0;
-        tempImage = "0";
+        tempImage = "1";
 
         if(cursor.getCount() == 0) {//Toast.makeText(CalendarActivity.this, "저장된 정보가 없습니다.", Toast.LENGTH_SHORT).show();} else {
             while(cursor.moveToNext()) { tempImage = cursor.getString(2); }
         }
 
-        myGridAdapter.addItem(new CalendarGridViewData(index, tempImage));
+        myGridAdapter.addItem(new CalendarGridViewData(index, "1", tempImage));
         myGridAdapter.notifyDataSetChanged();
     }
 }
