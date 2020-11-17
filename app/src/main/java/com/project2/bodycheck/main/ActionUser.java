@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,9 +51,10 @@ public class ActionUser extends Fragment {
 
     private TextView userName;
     private TextView registerDate;
+    private ImageView imageWithDrawal;
     private Button buttonUserInfo;
     private Button buttonUserHabit;
-    private Button buttonWithdrawal;
+    private Button buttonToDoList;
 
     private FirebaseUser firebaseUser;
     private FirebaseFirestore db;
@@ -69,9 +71,10 @@ public class ActionUser extends Fragment {
         util = new PreferenceManager(activity);
         userName = (TextView) viewGroup.findViewById(R.id.userinfo_userName);
         registerDate = (TextView) viewGroup.findViewById(R.id.userinfo_registerDate);
+        imageWithDrawal = (ImageView) viewGroup.findViewById(R.id.userinfo_withdrawal);
         buttonUserInfo = (Button) viewGroup.findViewById(R.id.userinfo_infoModify);
         buttonUserHabit = (Button) viewGroup.findViewById(R.id.userinfo_userHabit);
-        buttonWithdrawal = (Button) viewGroup.findViewById(R.id.userinfo_withdrawal);
+        buttonToDoList = (Button) viewGroup.findViewById(R.id.userinfo_toDoList);
 
         setting = activity.getSharedPreferences("setting", 0);
         editor = setting.edit();
@@ -93,9 +96,10 @@ public class ActionUser extends Fragment {
             }
         });
 
+        imageWithDrawal.setOnClickListener(listener);
         buttonUserInfo.setOnClickListener(listener);
         buttonUserHabit.setOnClickListener(listener);
-        buttonWithdrawal.setOnClickListener(listener);
+        buttonToDoList.setOnClickListener(listener);
         return viewGroup;
     }
 
@@ -108,7 +112,10 @@ public class ActionUser extends Fragment {
             if (view == buttonUserHabit) {
                 activity.startActivity(new Intent(getContext(), UserHabitActivity.class));
             }
-            if (view == buttonWithdrawal) {
+            if (view == buttonToDoList) {
+                activity.startActivity(new Intent(getContext(), TodoListActivity.class));
+            }
+            if(view == imageWithDrawal){
                 AlertDialog.Builder alert_confirm = new AlertDialog.Builder(getContext());
                 alert_confirm.setMessage("All you sure you want to delete your account?").setCancelable(true).
                         setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -120,6 +127,7 @@ public class ActionUser extends Fragment {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         Toast.makeText(getContext(), "Delete your account successfully", Toast.LENGTH_LONG).show();
+
                                         editor.clear();
                                         editor.commit();
                                         activity.Logout();

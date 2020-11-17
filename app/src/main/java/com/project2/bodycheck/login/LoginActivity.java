@@ -93,8 +93,7 @@ public class LoginActivity extends AppCompatActivity {
             editTextEmail.setText(setting.getString("id",""));
             editTextPassword.setText(setting.getString("pw",""));
             autoLogin.setChecked(true);
-            startActivity(new Intent(getApplicationContext(), ContentActivity.class));
-            finish();
+            userLogin();
         }
 
         if (!setting.getString("id","").equals("")) {

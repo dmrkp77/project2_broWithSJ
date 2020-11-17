@@ -1,165 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:orientation="horizontal"
-        android:background="@drawable/gradient_blue">
+        android:background="@drawable/gradient_blue"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <ImageView
-            android:layout_marginLeft="10dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/calendar"/>
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/calendar"
+            android:padding="10dp" />
 
         <TextView
-            android:layout_marginLeft="6dp"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_marginLeft="6dp"
             android:gravity="center_vertical"
             android:paddingLeft="14dp"
             android:text="Calendar"
             android:textColor="@color/colorWhite"
-            android:textSize="30sp"/>
+            android:textSize="30sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:gravity="center"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/move_left"
-            android:layout_marginRight="15dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/left"
             android:textColor="@color/colorSkyBlue"
-            android:textSize="30sp"
-            android:background="@drawable/left"/>
+            android:textSize="30sp" />
 
         <TextView
-            android:gravity="center"
             android:id="@+id/tv_date"
             android:layout_width="250dp"
             android:layout_height="55dp"
-            android:text="2020년 9월"
-            android:textSize="30sp"
+            android:gravity="center"
             android:paddingBottom="3dp"
-            android:textColor="@color/colorBlack"/>
+            android:text="2020년 9월"
+            android:textColor="@color/colorBlack"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/move_right"
-            android:layout_marginLeft="15dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/right"
             android:textColor="@color/colorSkyBlue"
-            android:textSize="30sp"
-            android:background="@drawable/right"/>
+            android:textSize="30sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:orientation="vertical"
-        android:background="@color/colorBlack"/>
+        android:layout_marginTop="10dp"
+        android:background="@color/colorBlack"
+        android:orientation="vertical" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:background="#F1F1F1">
+        android:background="#F1F1F1"
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:textSize="18sp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="일"
-            android:textColor="@color/colorRed"/>
+            android:textColor="@color/colorRed"
+            android:textSize="18sp" />
 
         <TextView
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:textSize="18sp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="월"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
 
         <TextView
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:textSize="18sp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="화"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
 
         <TextView
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:textSize="18sp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="수"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
 
         <TextView
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:textSize="18sp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="목"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
 
         <TextView
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:textSize="18sp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="금"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp" />
 
         <TextView
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:textSize="18sp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="토"
-            android:textColor="@color/colorBlue"/>
+            android:textColor="@color/colorBlue"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:background="@drawable/gradient_blue"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <GridView
-            android:background="@color/colorWhite"
             android:id="@+id/gridview"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numColumns="7"
-            android:listSelector="#ECECEC"/>
+            android:background="@color/colorWhite"
+            android:listSelector="#ECECEC"
+            android:numColumns="7" />
 
     </LinearLayout>
-
 </LinearLayout>
