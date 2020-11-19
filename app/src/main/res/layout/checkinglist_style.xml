@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/calendar_list"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:gravity="center"
+        android:background="@drawable/container_style_2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:padding="10dp"
+            android:id="@+id/checking_list_item_title"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Title"
+            android:textSize="32sp"
+            android:gravity="center|left"
+            android:textColor="@color/colorBlack" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
