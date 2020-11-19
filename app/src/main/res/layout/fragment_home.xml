@@ -314,6 +314,33 @@
                         android:orientation="vertical">
 
                         <Button
+                            android:id="@+id/home_todolistBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:text="ToDoList"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#99cffffe"
+                        android:orientation="vertical">
+
+                        <Button
                             android:id="@+id/home_calenderBtn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"

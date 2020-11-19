@@ -215,7 +215,7 @@ public class CalendarActivity extends Activity {
 
     //데이터베이스 조회하기 (일자별 일정 조회)
     private void searchData(String text, String index) {
-        Cursor cursor = db.searchData(text);
+        Cursor cursor = db.searchCalendarData(text);
 
         textViewCount = 0;
         tempImage = "1";

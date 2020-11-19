@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".main.TodoListActivity" >
-        </activity>
+
         <activity android:name=".main.UserHabitActivity" />
         <activity android:name=".main.ContentActivity" />
         <activity android:name=".main.UserInfoActivity" />
@@ -18,6 +17,9 @@
         <activity android:name=".main.SurveyActivity" />
         <activity android:name=".login.RegisterActivity" />
         <activity android:name=".calendar.CalendarActivity" />
+        <activity android:name=".main.ToDoListActivity"/>
+        <activity android:name=".main.ToDoListCreate"/>
+        <activity android:name=".main.ToDoListChecking"/>
         <activity android:name=".login.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

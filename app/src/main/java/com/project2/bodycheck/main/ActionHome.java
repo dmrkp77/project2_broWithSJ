@@ -64,8 +64,8 @@ public class ActionHome extends Fragment {
     ViewGroup viewGroup;
     private Button surveyButton;
     private Button surveyButton2;
-    //private Button toDoListButton;
     private Button calenderButton;
+    private Button todolistButton;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
@@ -78,14 +78,12 @@ public class ActionHome extends Fragment {
     private TextView textView_beforeSurveyDate;
     private TextView textView_surveyDate;
     private TextView textView_totalScore;
-
     int habitScore = 0, surveyScore = 0;
 
     int score1, score2;
     private PieChart pieChart;
+
     private BarChart barChart;
-
-
 
     //뷰 페이저
     private ViewPager viewPager;
@@ -150,8 +148,8 @@ public class ActionHome extends Fragment {
 
         surveyButton = (Button) viewGroup.findViewById(R.id.home_surveyButton);
         surveyButton2 = (Button) viewGroup.findViewById(R.id.home_surveyButton2);
-        //toDoListButton = (Button) viewGroup.findViewById(R.id.home_toDoListBtn);
         calenderButton = (Button) viewGroup.findViewById(R.id.home_calenderBtn);
+        todolistButton = (Button) viewGroup.findViewById(R.id.home_todolistBtn);
 
         textView_totalScore = (TextView) viewGroup.findViewById(R.id.home_scoreView);
         textView_surveyDate = (TextView) viewGroup.findViewById(R.id.home_surveyDate);
@@ -170,8 +168,8 @@ public class ActionHome extends Fragment {
 
         surveyButton.setOnClickListener(listener);
         surveyButton2.setOnClickListener(listener);
-        //toDoListButton.setOnClickListener(listener);
         calenderButton.setOnClickListener(listener);
+        todolistButton.setOnClickListener(listener);
 
         return viewGroup;
     }
@@ -192,11 +190,11 @@ public class ActionHome extends Fragment {
             if (view == surveyButton2) {
                 startActivity(new Intent(getContext(), SurveyActivity.class));
             }
-            /*if(view == toDoListButton){
-                startActivity(new Intent(getContext(), SurveyActivity.class)); //SurveyActivity -> YourActivity
-            }*/
             if(view == calenderButton){
                 startActivity(new Intent(getContext(), CalendarActivity.class));
+            }
+            if(view == todolistButton) {
+                startActivity(new Intent(getContext(), ToDoListChecking.class));
             }
         }
     };
@@ -255,6 +253,12 @@ public class ActionHome extends Fragment {
             public void onEvent(@androidx.annotation.Nullable DocumentSnapshot documentSnapshot, @androidx.annotation.Nullable FirebaseFirestoreException e) {
                 String surveyDone = documentSnapshot.getData().get(KEY_SURVEY_DONE).toString();
                 if (surveyDone.equals("0")) {
+//                    textView_todayBoard.setText("You have not conducted today's survey.\nPlease conduct it first.");
+//                    textView_todayBoard.setTextSize(20);
+//                    textView_totalScore.setText("The socre will be displayed after conducting a survey.");
+//                    textView_totalScore.setTextSize(20);
+//
+//                    textView_beforeSurveyDate.setText("Please conduct a survey.");
                 } else {
                     int goToBedScore = 0;
                     if (documentSnapshot.getData().get("goToBed").toString().equals("before 9pm"))
@@ -334,6 +338,8 @@ public class ActionHome extends Fragment {
 
                     surveyScore = goToBedScore + sleepingTimeScore + breakfastScore + lunchScore + dinnerScore + midnightSnackScore + stressLevelScore;
 
+//                    UpdateBoard();
+
                     textView_beforeSurveyDate.setText("You did it on ");
 
                     String surveyDate = documentSnapshot.getData().get("surveyDate").toString();
@@ -343,19 +349,16 @@ public class ActionHome extends Fragment {
                 }
                 score2 = surveyScore;
 
-                textView_totalScore.setText(Integer.toString(score1+score2));
-                textView_totalScore.setTextSize(24);
-
                 ArrayList<PieEntry> values = new ArrayList<>();
                 values.add(new PieEntry((float) score1, "Habit"));
                 values.add(new PieEntry((float) score2, "Survey"));
 
                 PieDataSet pieDataSet = new PieDataSet(values, "");
-
-                PieData pieData = new PieData(pieDataSet);
                 pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
                 pieDataSet.setValueTextColor(Color.BLACK);
                 pieDataSet.setValueTextSize(16f);
+
+                PieData pieData = new PieData(pieDataSet);
 
                 pieChart.setData(pieData);
                 pieChart.getDescription().setEnabled(false);

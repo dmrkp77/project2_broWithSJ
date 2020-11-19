@@ -1,7 +1,6 @@
 package com.project2.bodycheck.main;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import android.app.AlertDialog;
@@ -32,7 +31,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.project2.bodycheck.PreferenceManager;
 import com.project2.bodycheck.R;
-import com.project2.bodycheck.login.LoginActivity;
 
 
 import javax.annotation.Nullable;
@@ -74,7 +72,7 @@ public class ActionUser extends Fragment {
         imageWithDrawal = (ImageView) viewGroup.findViewById(R.id.userinfo_withdrawal);
         buttonUserInfo = (Button) viewGroup.findViewById(R.id.userinfo_infoModify);
         buttonUserHabit = (Button) viewGroup.findViewById(R.id.userinfo_userHabit);
-        buttonToDoList = (Button) viewGroup.findViewById(R.id.userinfo_toDoList);
+        buttonToDoList = (Button) viewGroup.findViewById(R.id.userinfo_todolist);
 
         setting = activity.getSharedPreferences("setting", 0);
         editor = setting.edit();
@@ -113,7 +111,7 @@ public class ActionUser extends Fragment {
                 activity.startActivity(new Intent(getContext(), UserHabitActivity.class));
             }
             if (view == buttonToDoList) {
-                activity.startActivity(new Intent(getContext(), TodoListActivity.class));
+                activity.startActivity(new Intent(getContext(), ToDoListActivity.class));
             }
             if(view == imageWithDrawal){
                 AlertDialog.Builder alert_confirm = new AlertDialog.Builder(getContext());
