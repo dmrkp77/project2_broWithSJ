@@ -27,7 +27,7 @@
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
             android:gravity="center|left"
-            android:text="Current To Do List"/>
+            android:text="Current Setting"/>
 
     </LinearLayout>
 

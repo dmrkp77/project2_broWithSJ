@@ -27,26 +27,43 @@
             android:textColor="@color/colorWhite"
             android:textSize="30sp"
             android:gravity="center|left"
-            android:text="To Do List Checking"/>
+            android:text="Today's To Do List"/>
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="10dp"
-        android:background="@drawable/container_style">
+        android:layout_height="0dp"
+        android:orientation="vertical">
 
-        <ListView
-            android:layout_margin="10dp"
-            android:id="@+id/checking_listView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorWhite"
-            android:choiceMode="singleChoice"
-            android:dividerHeight="2dp" />
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@drawable/container_style">
 
-    </LinearLayout>
+            <ListView
+                android:layout_margin="10dp"
+                android:id="@+id/checking_listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite"
+                android:choiceMode="multipleChoice"
+                android:dividerHeight="2dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="26dp"
+            android:id="@+id/button_today_check"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/check"/>
+
+    </RelativeLayout>
 
 </LinearLayout>

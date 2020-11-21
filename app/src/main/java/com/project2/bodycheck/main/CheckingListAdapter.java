@@ -33,6 +33,7 @@ public class CheckingListAdapter extends BaseAdapter {
         else { itemView = (CheckingListItem)convertView; }
 
         itemView.setTitle(myData.get(position).getTitle());
+        itemView.setCheck(myData.get(position).getCheck());
 
         return itemView;
     }

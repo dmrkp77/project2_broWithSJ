@@ -42,316 +42,6 @@
 
             </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="350dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="15dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="20dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#99cffffe"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:orientation="vertical"
-                            android:background="#70C5DF">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_margin="10dp"
-                                android:orientation="vertical"
-                                android:background="#E0FFFE">
-
-                                <TextView
-                                    android:layout_marginTop="10dp"
-                                    android:gravity="center"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="40dp"
-                                    android:textSize="24sp"
-                                    android:textColor="@color/colorBlack"
-                                    android:text="TODAY'S TO DO LIST"/>
-
-                                <LinearLayout
-                                    android:layout_marginTop="8dp"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="40dp"
-                                    android:orientation="horizontal"
-                                    android:gravity="center|left">
-
-                                    <TextView
-                                        android:layout_marginLeft="10dp"
-                                        android:layout_width="7dp"
-                                        android:layout_height="7dp"
-                                        android:background="@drawable/circle_bg"/>
-
-                                    <LinearLayout
-                                        android:layout_marginLeft="12dp"
-                                        android:layout_marginRight="12dp"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/list_sample1"
-                                            android:paddingLeft="2dp"
-                                            android:gravity="center|left"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="39"
-                                            android:textSize="20sp"
-                                            android:textColor="@color/colorBlack"
-                                            android:text="sample1"/>
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="1"
-                                            android:background="#000"/>
-
-                                    </LinearLayout>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_marginTop="8dp"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="40dp"
-                                    android:orientation="horizontal"
-                                    android:gravity="center|left">
-
-                                    <TextView
-                                        android:layout_marginLeft="10dp"
-                                        android:layout_width="7dp"
-                                        android:layout_height="7dp"
-                                        android:background="@drawable/circle_bg"/>
-
-                                    <LinearLayout
-                                        android:layout_marginLeft="12dp"
-                                        android:layout_marginRight="12dp"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/list_sample2"
-                                            android:paddingLeft="2dp"
-                                            android:gravity="center|left"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="39"
-                                            android:textSize="20sp"
-                                            android:textColor="@color/colorBlack"
-                                            android:text="sample2"/>
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="1"
-                                            android:background="#000"/>
-
-                                    </LinearLayout>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_marginTop="8dp"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="40dp"
-                                    android:orientation="horizontal"
-                                    android:gravity="center|left">
-
-                                    <TextView
-                                        android:layout_marginLeft="10dp"
-                                        android:layout_width="7dp"
-                                        android:layout_height="7dp"
-                                        android:background="@drawable/circle_bg"/>
-
-                                    <LinearLayout
-                                        android:layout_marginLeft="12dp"
-                                        android:layout_marginRight="12dp"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/list_sample3"
-                                            android:paddingLeft="2dp"
-                                            android:gravity="center|left"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="39"
-                                            android:textSize="20sp"
-                                            android:textColor="@color/colorBlack"
-                                            android:text="sample3"/>
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="1"
-                                            android:background="#000"/>
-
-                                    </LinearLayout>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_marginTop="8dp"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="40dp"
-                                    android:orientation="horizontal"
-                                    android:gravity="center|left">
-
-                                    <TextView
-                                        android:layout_marginLeft="10dp"
-                                        android:layout_width="7dp"
-                                        android:layout_height="7dp"
-                                        android:background="@drawable/circle_bg"/>
-
-                                    <LinearLayout
-                                        android:layout_marginLeft="12dp"
-                                        android:layout_marginRight="12dp"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/list_sample4"
-                                            android:paddingLeft="2dp"
-                                            android:gravity="center|left"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="39"
-                                            android:textSize="20sp"
-                                            android:textColor="@color/colorBlack"
-                                            android:text="sample4"/>
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="1"
-                                            android:background="#000"/>
-
-                                    </LinearLayout>
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_marginTop="8dp"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="40dp"
-                                    android:orientation="horizontal"
-                                    android:gravity="center|left">
-
-                                    <TextView
-                                        android:layout_marginLeft="10dp"
-                                        android:layout_width="7dp"
-                                        android:layout_height="7dp"
-                                        android:background="@drawable/circle_bg"/>
-
-                                    <LinearLayout
-                                        android:layout_marginLeft="12dp"
-                                        android:layout_marginRight="12dp"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/list_sample5"
-                                            android:paddingLeft="2dp"
-                                            android:gravity="center|left"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="39"
-                                            android:textSize="20sp"
-                                            android:textColor="@color/colorBlack"
-                                            android:text="sample5"/>
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="0dp"
-                                            android:layout_weight="1"
-                                            android:background="#000"/>
-
-                                    </LinearLayout>
-
-                                </LinearLayout>
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="15dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="20dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#99cffffe"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/home_todolistBtn"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@null"
-                            android:text="ToDoList"
-                            android:textSize="24sp" />
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="15dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="20dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#99cffffe"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/home_calenderBtn"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@null"
-                            android:text="Calender"
-                            android:textSize="24sp" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
@@ -431,6 +121,68 @@
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="7.5dp"
+                    android:layout_marginBottom="15dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#99cffffe"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/home_todolistBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:text="Today's\nToDoList"
+                            android:textSize="24sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="7.5dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#99cffffe"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/home_calenderBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:text="Calender"
+                            android:textSize="24sp" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"

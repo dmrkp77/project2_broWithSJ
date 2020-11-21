@@ -11,19 +11,35 @@
         android:background="@drawable/container_style_2"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_margin="5dp">
 
         <TextView
+            android:layout_weight="9"
             android:padding="10dp"
             android:id="@+id/checking_list_item_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="60dp"
             android:text="Title"
             android:textSize="32sp"
             android:gravity="center|left"
             android:textColor="@color/colorBlack" />
 
+        <LinearLayout
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/colorBlack">
+
+            <TextView
+                android:id="@+id/list_check"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:background="@color/colorWhite"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
