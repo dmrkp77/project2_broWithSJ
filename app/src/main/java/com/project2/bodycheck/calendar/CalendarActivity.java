@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -220,7 +221,10 @@ public class CalendarActivity extends Activity {
         textViewCount = 0;
         tempImage = "1";
 
-        if(cursor.getCount() == 0) {//Toast.makeText(CalendarActivity.this, "저장된 정보가 없습니다.", Toast.LENGTH_SHORT).show();} else {
+        if(cursor.getCount() == 0) {
+            //Toast.makeText(CalendarActivity.this, "저장된 정보가 없습니다.", Toast.LENGTH_SHORT).show();
+        }
+        else {
             while(cursor.moveToNext()) { tempImage = cursor.getString(2); }
         }
 

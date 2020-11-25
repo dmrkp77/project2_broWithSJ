@@ -27,7 +27,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String SAT = "SAT";
 
     //위의 테이블 추가시 버전 갱신 필요
-    public DataBaseHelper(Context context) { super(context, DB_NAME, null, 5); }
+    public DataBaseHelper(Context context) { super(context, DB_NAME, null, 6); }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -145,6 +145,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    //캘린더 전체 탐색
+    public Cursor viewCalendarData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from " + DB_TABLE, null);
+        return cursor;
+    }
+
     //캘린더 데이터 삭제
     public int deleteCalendarData(String id) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -157,13 +164,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return db.delete(TODO_TABLE, "TODO_ID = ?", new String[] {id});
     }
 
-    /*
-    //데이터 갱신
-    public int updateData(String id, String temp) {
+    //캘린더 데이터 갱신
+    public int updateCalendarData(String id, String image) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(TEMP, temp);
+        contentValues.put(IMAGE, image);
         return db.update(DB_TABLE, contentValues,"ID = ?", new String[] {id});
     }
-    */
 }

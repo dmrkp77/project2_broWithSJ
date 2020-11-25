@@ -380,7 +380,7 @@ public class ActionHome extends Fragment {
             labelsNames.add(dates);
         }
 
-        BarDataSet barDataSet = new BarDataSet(barEntryArrayList, "Dates");
+        BarDataSet barDataSet = new BarDataSet(barEntryArrayList, "Score");
         barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         Description description = new Description();
         description.setText("Dates");
@@ -401,13 +401,13 @@ public class ActionHome extends Fragment {
 
     private void fillChartDate() {
         chartDateDataArrayList.clear();
-        chartDateDataArrayList.add(new ChartDateData("xx/xx", 50));
-        chartDateDataArrayList.add(new ChartDateData("xx/xx", 50));
-        chartDateDataArrayList.add(new ChartDateData("xx/xx", 50));
-        chartDateDataArrayList.add(new ChartDateData("xx/xx", 50));
-        chartDateDataArrayList.add(new ChartDateData("xx/xx", 50));
-        chartDateDataArrayList.add(new ChartDateData("xx/xx", 50));
-        chartDateDataArrayList.add(new ChartDateData("xx/xx", 50));
+        chartDateDataArrayList.add(new ChartDateData(ContentActivity.data1_month + "/" + ContentActivity.data1_day, ContentActivity.data1));
+        chartDateDataArrayList.add(new ChartDateData(ContentActivity.data2_month + "/" + ContentActivity.data2_day, ContentActivity.data2));
+        chartDateDataArrayList.add(new ChartDateData(ContentActivity.data3_month + "/" + ContentActivity.data3_day, ContentActivity.data3));
+        chartDateDataArrayList.add(new ChartDateData(ContentActivity.data4_month + "/" + ContentActivity.data4_day, ContentActivity.data4));
+        chartDateDataArrayList.add(new ChartDateData(ContentActivity.data5_month + "/" + ContentActivity.data5_day, ContentActivity.data5));
+        chartDateDataArrayList.add(new ChartDateData(ContentActivity.data6_month + "/" + ContentActivity.data6_day, ContentActivity.data6));
+        chartDateDataArrayList.add(new ChartDateData(ContentActivity.today_month + "/" + ContentActivity.today_day, ContentActivity.today_data));
     }
 
 //    public void UpdateBoard() {
