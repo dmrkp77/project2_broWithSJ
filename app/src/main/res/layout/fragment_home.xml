@@ -18,7 +18,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="220dp"
                 android:layout_margin="15dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="20dp">
@@ -31,6 +31,7 @@
                     android:gravity="center">
 
                     <androidx.viewpager.widget.ViewPager
+                        android:layout_margin="10dp"
                         android:id="@+id/home_viewPager"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">

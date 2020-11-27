@@ -121,7 +121,7 @@ public class ToDoListChecking extends Activity {
                 //달성도 판단 후 현재 날짜 달성도 기록 (데베 달력전용 테이블)
                 int percentage = checkCount * 100 / totalCount;
                 String image;
-                if(percentage >= 80) { image = "3"; }
+                if(percentage >= 70) { image = "3"; }
                 else if(percentage >= 40) { image = "2"; }
                 else { image = "1"; }
 

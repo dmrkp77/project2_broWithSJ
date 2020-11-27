@@ -94,7 +94,7 @@ public class ActionHome extends Fragment {
         @Override
         public void run() {
             //이미지 개수 만큼 숫자 조절 필요
-            if(currentPage == 2) { currentPage = 0; }
+            if(currentPage == 3) { currentPage = 0; }
             viewPager.setCurrentItem(currentPage++, true);
         }
     };

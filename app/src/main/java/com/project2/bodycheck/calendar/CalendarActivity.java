@@ -219,7 +219,7 @@ public class CalendarActivity extends Activity {
         Cursor cursor = db.searchCalendarData(text);
 
         textViewCount = 0;
-        tempImage = "1";
+        tempImage = "0";
 
         if(cursor.getCount() == 0) {
             //Toast.makeText(CalendarActivity.this, "저장된 정보가 없습니다.", Toast.LENGTH_SHORT).show();

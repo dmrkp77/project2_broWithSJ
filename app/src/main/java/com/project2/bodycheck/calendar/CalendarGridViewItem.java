@@ -35,9 +35,9 @@ public class CalendarGridViewItem extends LinearLayout {
     }
 
     public void setMyImage(String image) {
-        if(image.equals("1")) { myImage.setBackgroundResource(R.drawable.ic_launcher_foreground); }
-        else if(image.equals("2")) { myImage.setBackgroundResource(R.drawable.ic_launcher_background); }
-        else if(image.equals("3")) { myImage.setBackgroundResource(R.drawable.oval); }
+        if(image.equals("1")) { myImage.setBackgroundResource(R.drawable.icon_sad); }
+        else if(image.equals("2")) { myImage.setBackgroundResource(R.drawable.icon_soso); }
+        else if(image.equals("3")) { myImage.setBackgroundResource(R.drawable.icon_smile); }
         else { myImage.setBackgroundResource(0); }
     }
 }

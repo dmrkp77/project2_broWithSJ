@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
-    int image[] = {R.drawable.ic_launcher_background, R.drawable.ic_launcher_foreground};
+    int image[] = {R.drawable.banner1, R.drawable.banner2, R.drawable.banner3};
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }
