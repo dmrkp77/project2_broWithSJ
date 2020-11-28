@@ -17,7 +17,7 @@
             android:layout_marginLeft="10dp"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/list"/>
+            android:background="@drawable/file"/>
 
         <TextView
             android:layout_weight="1"
