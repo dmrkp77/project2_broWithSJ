@@ -133,6 +133,7 @@ public class ActionHome extends Fragment {
         }, DELAY_MS, PERIOD_MS);
 
         CalculateHabitScore();
+        setPieChart();
         setBarChart();
     }
 
@@ -160,6 +161,7 @@ public class ActionHome extends Fragment {
         docRef_Survey = db.collection("UserSurvey").document(firebaseUser.getEmail());
         docRef_Habit = db.collection("UserHabit").document(firebaseUser.getEmail());
         CalculateHabitScore();
+        setPieChart();
         setBarChart();
 
         surveyButton.setOnClickListener(listener);
@@ -236,6 +238,7 @@ public class ActionHome extends Fragment {
 //                    UpdateBoard();
                 }
                 score1 = habitScore;
+                ContentActivity.pieScore1 = score1;
                 CalculateSurveyScore();
             }
         });
@@ -344,25 +347,30 @@ public class ActionHome extends Fragment {
 
                 }
                 score2 = surveyScore;
-
-                ArrayList<PieEntry> values = new ArrayList<>();
-                values.add(new PieEntry((float) score1, "Habit"));
-                values.add(new PieEntry((float) score2, "Survey"));
-
-                PieDataSet pieDataSet = new PieDataSet(values, "");
-                pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-                pieDataSet.setValueTextColor(Color.BLACK);
-                pieDataSet.setValueTextSize(16f);
-
-                PieData pieData = new PieData(pieDataSet);
-
-                pieChart.setData(pieData);
-                pieChart.getDescription().setEnabled(false);
-                pieChart.setCenterText("Score");
-                pieChart.animate();
+                ContentActivity.pieScore2 = score2;
             }
         });
+
         return;
+    }
+
+    private void setPieChart() {
+        ArrayList<PieEntry> values = new ArrayList<>();
+        values.clear();
+        values.add(new PieEntry((float) ContentActivity.pieScore1, "Habit"));
+        values.add(new PieEntry((float) ContentActivity.pieScore2, "Survey"));
+
+        PieDataSet pieDataSet = new PieDataSet(values, "");
+        pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        pieDataSet.setValueTextColor(Color.BLACK);
+        pieDataSet.setValueTextSize(16f);
+
+        PieData pieData = new PieData(pieDataSet);
+
+        pieChart.setData(pieData);
+        pieChart.getDescription().setEnabled(false);
+        pieChart.setCenterText("Score");
+        pieChart.animate();
     }
 
     ArrayList<BarEntry> barEntryArrayList;

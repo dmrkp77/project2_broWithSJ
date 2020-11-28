@@ -64,6 +64,9 @@ public class ContentActivity extends AppCompatActivity {
     String today;
     private String searchText;
 
+    static int pieScore1;
+    static int pieScore2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -156,6 +159,12 @@ public class ContentActivity extends AppCompatActivity {
             today_day = curDayFormat.format(date);
             today = searchText;
         }
+
+        SharedPreferences pieData = getSharedPreferences("pieData", MODE_PRIVATE);
+        int pie1 = pieData.getInt("pie1", 0);
+        int pie2 = pieData.getInt("pie2", 0);
+        pieScore1 = pie1;
+        pieScore2 = pie2;
 
         actionHome = new ActionHome(this);
         actionUser = new ActionUser(this);
@@ -251,6 +260,17 @@ public class ContentActivity extends AppCompatActivity {
         barEditor.putString("check_date", check_date);
 
         barEditor.commit();
+
+        SharedPreferences pieData = getSharedPreferences("pieData", MODE_PRIVATE);
+        SharedPreferences.Editor pieEditor = pieData.edit();
+
+        int pie1 = pieScore1;
+        int pie2 = pieScore2;
+
+        pieEditor.putInt("pie1", pie1);
+        pieEditor.putInt("pie2", pie2);
+
+        pieEditor.commit();
     }
 
     public void Confirm_logout() {
